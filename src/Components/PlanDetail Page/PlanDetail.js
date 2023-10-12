@@ -18,7 +18,7 @@ function PlanDetail() {
         // console.log(token);
         async function getPlanDetails() {
             // console.log("inside useeffect");
-            const data = await axios.get(`http://localhost:5000/plans/plan/${id}`,{
+            const data = await axios.get(`https://foodapp-back-8af034b238dd.herokuapp.com/plans/plan/${id}`,{
                 headers:{
                     auth: token,
                 }
@@ -27,7 +27,7 @@ function PlanDetail() {
             delete data.data.data["_id"]
             delete data.data.data["__v"]
             setplan(data.data.data)
-            const reviews = await axios.get("http://localhost:5000/review/"+id);
+            const reviews = await axios.get("https://foodapp-back-8af034b238dd.herokuapp.com/review/"+id);
             // console.log(reviews);
             // console.log(reviews.data.data);
             setarr(reviews.data.data)
@@ -42,7 +42,7 @@ function PlanDetail() {
     // console.log("user ",user);
     const handleClick = async () => {
         // console.log(user);
-        const data = await axios.post("http://localhost:5000/review/crud/"+id, {
+        const data = await axios.post("https://foodapp-back-8af034b238dd.herokuapp.com/review/crud/"+id, {
             "review": review,
             "rating": rate,
             "user": user.data._id,
@@ -54,7 +54,7 @@ function PlanDetail() {
             }
         })
         console.log(data);
-        const reviews = await axios.get("http://localhost:5000/review/" + id);
+        const reviews = await axios.get("https://foodapp-back-8af034b238dd.herokuapp.com/review/" + id);
         // console.log(reviews);
         setarr(reviews.data.data);
     }
@@ -63,7 +63,7 @@ function PlanDetail() {
            
             // console.log("12345",reviewId);
             // console.log(token);
-            let data = await axios.delete("http://localhost:5000/review/crud/"+id,{
+            let data = await axios.delete("https://foodapp-back-8af034b238dd.herokuapp.com/review/crud/"+id,{
                 headers:{
                     auth: token,
                     role: user.data.role
@@ -73,7 +73,7 @@ function PlanDetail() {
                 }
             });
             console.log(data);
-            const reviews = await axios.get("http://localhost:5000/review/" + id);
+            const reviews = await axios.get("https://foodapp-back-8af034b238dd.herokuapp.com/review/" + id);
             // console.log(reviews);
             setarr(reviews.data.data);
             alert("review deleted");

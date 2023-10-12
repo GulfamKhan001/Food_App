@@ -9,7 +9,7 @@ function AllPlans() {
     useEffect(() => {
         async function getAllPlans() {
             try {
-                const data = await axios.get("http://localhost:5000/plans/allPlans");
+                const data = await axios.get("https://foodapp-back-8af034b238dd.herokuapp.com/plans/allPlans");
                 // console.log(data.data);
                 arrset(data.data.allPlans);
             } catch (err) {

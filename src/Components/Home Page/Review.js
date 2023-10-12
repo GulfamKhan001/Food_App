@@ -9,7 +9,7 @@ function Review() {
     useEffect(() => {
         async function getTop3Reviews() {
             try {
-                const data = await axios.get("http://localhost:5000/review/top3");
+                const data = await axios.get("https://foodapp-back-8af034b238dd.herokuapp.com/review/top3");
                 console.log(data);
                 setarr(data.data.reviews);
                 // console.log(data.data.length);

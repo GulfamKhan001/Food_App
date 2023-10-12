@@ -15,7 +15,7 @@ function AuthProvider({ children }) {
     const [token,setToken] = useState("");
 
     async function signUp(name,email,password,confirmPassword) {
-        const data = await axios.post("http://localhost:5000/user/signup", {
+        const data = await axios.post("https://foodapp-back-8af034b238dd.herokuapp.com/user/signup", {
             name:name,
             email: email,
             password: password,
@@ -26,7 +26,7 @@ function AuthProvider({ children }) {
     }
     async function login(email, password) {
         try {
-            const data = await axios.post("http://localhost:5000/user/login", {
+            const data = await axios.post("https://foodapp-back-8af034b238dd.herokuapp.com/user/login", {
                 email: email,
                 password: password
             });
@@ -49,7 +49,7 @@ function AuthProvider({ children }) {
         localStorage.removeItem("user")
         Cookies.remove('log');
         setToken(null);
-        const data = await axios.get("http://localhost:5000/user/logout");
+        const data = await axios.get("https://foodapp-back-8af034b238dd.herokuapp.com/user/logout");
         // console.log(data);
         userSet(null);
     }

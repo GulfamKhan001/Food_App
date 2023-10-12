@@ -10,7 +10,7 @@ function Plans() {
     useEffect(() => {
         async function getTop3Plans() {
             try {
-                const data = await axios.get("http://localhost:5000/plans/top3");
+                const data = await axios.get("https://foodapp-back-8af034b238dd.herokuapp.com/plans/top3");
                 // console.log(data,23443);
                 arrset(data.data.data);
 

@@ -28,12 +28,12 @@ function Profile() {
     const [email, emailSet] = useState("");
     const [name, nameSet] = useState("");
     const nameEdit = async () => {
-        await axios.patch('http://localhost:5000/user/login');
+        await axios.patch('https://foodapp-back-8af034b238dd.herokuapp.com/user/login');
     }
     const handleClick = async () => {
         try {
             // console.log(user._id);
-            const data = await axios.patch("http://localhost:5000/user/" + user._id, {
+            const data = await axios.patch("https://foodapp-back-8af034b238dd.herokuapp.com/user/" + user._id, {
                email,
                 name,
                 password,
